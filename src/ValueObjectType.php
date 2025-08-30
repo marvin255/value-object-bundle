@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Marvin255\DoctrineTranslationBundle;
 
+use Marvin255\DoctrineTranslationBundle\Type\EmailValueObjectType;
 use Marvin255\DoctrineTranslationBundle\Type\StringNonEmptyValueObjectType;
 use Marvin255\DoctrineTranslationBundle\Type\StringValueObjectType;
 
@@ -35,6 +36,7 @@ enum ValueObjectType: string
         return [
             self::STRING->value => StringValueObjectType::class,
             self::NON_EMPTY_STRING->value => StringNonEmptyValueObjectType::class,
+            self::EMAIL->value => EmailValueObjectType::class,
         ];
     }
 }
