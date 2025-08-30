@@ -6,6 +6,7 @@ namespace Marvin255\DoctrineTranslationBundle;
 
 use Marvin255\DoctrineTranslationBundle\Type\EmailValueObjectType;
 use Marvin255\DoctrineTranslationBundle\Type\FileInfoValueObjectType;
+use Marvin255\DoctrineTranslationBundle\Type\IntNonNegativeValueObjectType;
 use Marvin255\DoctrineTranslationBundle\Type\IntValueObjectType;
 use Marvin255\DoctrineTranslationBundle\Type\StringNonEmptyValueObjectType;
 use Marvin255\DoctrineTranslationBundle\Type\StringValueObjectType;
@@ -43,6 +44,7 @@ enum ValueObjectType: string
             self::URI->value => UriValueObjectType::class,
             self::FILE_INFO->value => FileInfoValueObjectType::class,
             self::INTEGER->value => IntValueObjectType::class,
+            self::NON_NEGATIVE_INTEGER->value => IntNonNegativeValueObjectType::class,
         ];
     }
 }
