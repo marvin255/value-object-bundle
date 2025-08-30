@@ -7,26 +7,26 @@ namespace Marvin255\DoctrineTranslationBundle\Type;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\StringType;
 use Marvin255\DoctrineTranslationBundle\ValueObjectType;
-use Marvin255\ValueObject\StringValueObject;
+use Marvin255\ValueObject\StringNonEmptyValueObject;
 
 /**
- * Type for StringValueObject.
+ * Type for StringNonEmptyValueObject.
  *
  * @internal
  */
-final class StringValueObjectType extends StringType
+final class StringNonEmptyValueObjectType extends StringType
 {
     /**
      * {@inheritdoc}
      */
     #[\Override]
-    public function convertToPHPValue($value, AbstractPlatform $platform): ?StringValueObject
+    public function convertToPHPValue($value, AbstractPlatform $platform): ?StringNonEmptyValueObject
     {
         if ($value === null) {
             return null;
         }
 
-        return new StringValueObject((string) $value);
+        return new StringNonEmptyValueObject((string) $value);
     }
 
     /**
@@ -39,7 +39,7 @@ final class StringValueObjectType extends StringType
             return null;
         }
 
-        if (!$value instanceof StringValueObject) {
+        if (!$value instanceof StringNonEmptyValueObject) {
             throw new \InvalidArgumentException('Invalid value');
         }
 
@@ -52,6 +52,6 @@ final class StringValueObjectType extends StringType
     #[\Override]
     public function getName(): string
     {
-        return ValueObjectType::STRING->value;
+        return ValueObjectType::NON_EMPTY_STRING->value;
     }
 }
