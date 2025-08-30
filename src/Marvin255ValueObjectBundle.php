@@ -40,8 +40,7 @@ final class Marvin255ValueObjectBundle extends AbstractBundle
             'doctrine',
             [
                 'dbal' => [
-                    'types' => [
-                    ],
+                    'types' => ValueObjectType::getNameToClassMap(),
                 ],
             ]
         );
