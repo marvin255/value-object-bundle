@@ -100,4 +100,4 @@ jobs:
           cat $SYMFONY_FOLDER/config/bundles.php | grep "Marvin255ValueObjectBundle"
       - name: Check that Doctrine works fine
         run: |
-          cat $SYMFONY_FOLDER/bin/console doctrine:mapping:info --no-interaction
+          cat $SYMFONY_FOLDER/bin/console doctrine:mapping:info
