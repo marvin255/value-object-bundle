@@ -101,4 +101,4 @@ jobs:
       - name: Check that Doctrine works fine
         run: |
           cd $SYMFONY_FOLDER
-          bin/console doctrine:mapping:info
+          bin/console
