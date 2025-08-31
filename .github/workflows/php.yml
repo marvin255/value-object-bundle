@@ -97,7 +97,7 @@ jobs:
           composer req "marvin255/value-object-bundle:dev-${{ steps.extract_branch.outputs.branch }}" -W
       - name: Check that module is auto enabled
         run: |
-          cat $SYMFONY_FOLDER/config/bundles.php | grep "Marvin255RandomStringGeneratorBundle"
+          cat $SYMFONY_FOLDER/config/bundles.php | grep "Marvin255ValueObjectBundle"
       - name: Check that Doctrine works fine
         run: |
           cat $SYMFONY_FOLDER/bin/console doctrine:mapping:info --no-interaction
