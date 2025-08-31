@@ -46,10 +46,6 @@ final class FileInfoValueObjectType extends StringType
         return $value->getValue();
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    #[\Override]
     public function getName(): string
     {
         return ValueObjectType::FILE_INFO->value;

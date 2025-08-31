@@ -6,6 +6,7 @@ namespace Marvin255\ValueObjectBundle\Type;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\StringType;
+use Doctrine\DBAL\Types\Type;
 use Marvin255\ValueObject\EmailValueObject;
 use Marvin255\ValueObjectBundle\ValueObjectType;
 
@@ -46,10 +47,6 @@ final class EmailValueObjectType extends StringType
         return $value->getValue();
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    #[\Override]
     public function getName(): string
     {
         return ValueObjectType::EMAIL->value;

@@ -46,10 +46,6 @@ final class UriValueObjectType extends StringType
         return $value->getValue();
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    #[\Override]
     public function getName(): string
     {
         return ValueObjectType::URI->value;

@@ -18,10 +18,5 @@
                 <directory name="./tests"/>
             </errorLevel>
         </UnusedClass>
-        <InternalMethod>
-            <errorLevel type="suppress">
-                <directory name="./tests"/>
-            </errorLevel>
-        </InternalMethod>
     </issueHandlers>
 </psalm>
