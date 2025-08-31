@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Marvin255\ValueObjectBundle\Tests\Type;
 
+use Doctrine\DBAL\ParameterType;
 use Marvin255\ValueObject\IntPositiveValueObject;
 use Marvin255\ValueObjectBundle\Tests\BaseCase;
 use Marvin255\ValueObjectBundle\Type\IntPositiveValueObjectType;
@@ -14,6 +15,27 @@ use Marvin255\ValueObjectBundle\ValueObjectType;
  */
 final class IntPositiveValueObjectTypeTest extends BaseCase
 {
+    public function testGetSQLDeclaration(): void
+    {
+        $type = new IntPositiveValueObjectType();
+        $platform = $this->createAbstarctPlatformMock();
+        $column = ['name' => 'test_column'];
+
+        $platform->expects($this->once())
+            ->method('getIntegerTypeDeclarationSQL')
+            ->with($column)
+            ->willReturn('INT(11)');
+
+        $this->assertSame('INT(11)', $type->getSQLDeclaration($column, $platform));
+    }
+
+    public function testGetBindingType(): void
+    {
+        $type = new IntPositiveValueObjectType();
+
+        $this->assertSame(ParameterType::INTEGER, $type->getBindingType());
+    }
+
     public function testGetName(): void
     {
         $type = new IntPositiveValueObjectType();

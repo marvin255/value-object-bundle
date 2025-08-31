@@ -46,10 +46,6 @@ final class StringValueObjectType extends StringType
         return $value->getValue();
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    #[\Override]
     public function getName(): string
     {
         return ValueObjectType::STRING->value;

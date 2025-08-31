@@ -46,10 +46,6 @@ final class StringNonEmptyValueObjectType extends StringType
         return $value->getValue();
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    #[\Override]
     public function getName(): string
     {
         return ValueObjectType::NON_EMPTY_STRING->value;

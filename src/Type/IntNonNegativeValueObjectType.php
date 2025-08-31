@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace Marvin255\ValueObjectBundle\Type;
 
+use Doctrine\DBAL\ParameterType;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
-use Doctrine\DBAL\Types\IntegerType;
+use Doctrine\DBAL\Types\Type;
 use Marvin255\ValueObject\IntNonNegativeValueObject;
 use Marvin255\ValueObjectBundle\ValueObjectType;
 
@@ -14,8 +15,26 @@ use Marvin255\ValueObjectBundle\ValueObjectType;
  *
  * @internal
  */
-final class IntNonNegativeValueObjectType extends IntegerType
+final class IntNonNegativeValueObjectType extends Type
 {
+    /**
+     * {@inheritDoc}
+     */
+    #[\Override]
+    public function getSQLDeclaration(array $column, AbstractPlatform $platform): string
+    {
+        return $platform->getIntegerTypeDeclarationSQL($column);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    #[\Override]
+    public function getBindingType(): ParameterType
+    {
+        return ParameterType::INTEGER;
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -46,10 +65,6 @@ final class IntNonNegativeValueObjectType extends IntegerType
         return $value->getValue();
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    #[\Override]
     public function getName(): string
     {
         return ValueObjectType::NON_NEGATIVE_INTEGER->value;
