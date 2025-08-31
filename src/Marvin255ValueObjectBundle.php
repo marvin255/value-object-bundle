@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Marvin255\DoctrineTranslationBundle;
+namespace Marvin255\ValueObjectBundle;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
@@ -40,8 +40,7 @@ final class Marvin255ValueObjectBundle extends AbstractBundle
             'doctrine',
             [
                 'dbal' => [
-                    'types' => [
-                    ],
+                    'types' => ValueObjectType::getNameToClassMap(),
                 ],
             ]
         );
