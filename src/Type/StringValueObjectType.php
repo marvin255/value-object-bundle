@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Marvin255\DoctrineTranslationBundle\Type;
+namespace Marvin255\ValueObjectBundle\Type;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\StringType;
-use Marvin255\DoctrineTranslationBundle\ValueObjectType;
 use Marvin255\ValueObject\StringValueObject;
+use Marvin255\ValueObjectBundle\ValueObjectType;
 
 /**
  * Type for StringValueObject.

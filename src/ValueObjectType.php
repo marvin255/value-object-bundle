@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Marvin255\DoctrineTranslationBundle;
+namespace Marvin255\ValueObjectBundle;
 
-use Marvin255\DoctrineTranslationBundle\Type\EmailValueObjectType;
-use Marvin255\DoctrineTranslationBundle\Type\FileInfoValueObjectType;
-use Marvin255\DoctrineTranslationBundle\Type\IntNonNegativeValueObjectType;
-use Marvin255\DoctrineTranslationBundle\Type\IntPositiveValueObjectType;
-use Marvin255\DoctrineTranslationBundle\Type\IntValueObjectType;
-use Marvin255\DoctrineTranslationBundle\Type\StringNonEmptyValueObjectType;
-use Marvin255\DoctrineTranslationBundle\Type\StringValueObjectType;
-use Marvin255\DoctrineTranslationBundle\Type\UriValueObjectType;
+use Marvin255\ValueObjectBundle\Type\EmailValueObjectType;
+use Marvin255\ValueObjectBundle\Type\FileInfoValueObjectType;
+use Marvin255\ValueObjectBundle\Type\IntNonNegativeValueObjectType;
+use Marvin255\ValueObjectBundle\Type\IntPositiveValueObjectType;
+use Marvin255\ValueObjectBundle\Type\IntValueObjectType;
+use Marvin255\ValueObjectBundle\Type\StringNonEmptyValueObjectType;
+use Marvin255\ValueObjectBundle\Type\StringValueObjectType;
+use Marvin255\ValueObjectBundle\Type\UriValueObjectType;
 
 /**
  * Enum for value object types.
