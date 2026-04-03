@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Marvin255\ValueObjectBundle\Tests\Type;
 
 use Doctrine\DBAL\ParameterType;
+use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Marvin255\ValueObject\IntPositiveValueObject;
 use Marvin255\ValueObjectBundle\Tests\BaseCase;
 use Marvin255\ValueObjectBundle\Type\IntPositiveValueObjectType;
@@ -18,9 +19,9 @@ final class IntPositiveValueObjectTypeTest extends BaseCase
     public function testGetSQLDeclaration(): void
     {
         $type = new IntPositiveValueObjectType();
-        $platform = $this->createAbstarctPlatformMock();
         $column = ['name' => 'test_column'];
 
+        $platform = $this->getMockBuilder(AbstractPlatform::class)->getMock();
         $platform->expects($this->once())
             ->method('getIntegerTypeDeclarationSQL')
             ->with($column)
