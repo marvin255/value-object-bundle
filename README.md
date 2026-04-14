@@ -38,8 +38,29 @@ The bundle provides Doctrine DBAL types that automatically convert database valu
 - `marvin255_uri` - UriValueObject
 - `marvin255_file_info` - FileInfoValueObject
 - `marvin255_integer` - IntValueObject
-- `marvin255_non_negative_integer` - IntNonNegativeValueObject
 - `marvin255_positive_integer` - IntPositiveValueObject
+- `marvin255_negative_integer` - IntNegativeValueObject
+- `marvin255_non_negative_integer` - IntNonNegativeValueObject
+- `marvin255_non_positive_integer` - IntNonPositiveValueObject
+- `marvin255_float` - FloatValueObject
+- `marvin255_percentage` - PercentageValueObject
+- `marvin255_bc_math_number` - BcMathNumberValueObject (requires bcmath PHP extension)
+
+### Optional Types
+
+Some types are only available when their corresponding PHP extensions are installed:
+
+#### BcMath Type (marvin255_bc_math_number)
+
+The `BcMathNumberValueObject` type provides arbitrary-precision decimal arithmetic using PHP's bcmath extension. It's automatically registered only if the `bcmath` extension is enabled.
+
+To enable bcmath on your PHP installation, ensure it's installed and uncommented in `php.ini`:
+
+```ini
+extension=bcmath
+```
+
+If the extension is not available, the type will not be registered but the rest of the bundle will continue to function normally.
 
 ### Define Entity Properties
 
