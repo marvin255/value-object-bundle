@@ -12,6 +12,8 @@ use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
  * Bundle object.
  *
  * @psalm-api
+ *
+ * @psalm-suppress DeprecatedInterface
  */
 final class Marvin255ValueObjectBundle extends AbstractBundle
 {
@@ -19,24 +21,24 @@ final class Marvin255ValueObjectBundle extends AbstractBundle
      * {@inheritdoc}
      */
     #[\Override]
-    public function loadExtension(array $config, ContainerConfigurator $container, ContainerBuilder $builder): void
+    public function loadExtension(array $config, ContainerConfigurator $configurator, ContainerBuilder $container): void
     {
-        $container->import('../config/services.yaml');
+        $configurator->import('../config/services.yaml');
     }
 
     /**
      * {@inheritdoc}
      */
     #[\Override]
-    public function prependExtension(ContainerConfigurator $container, ContainerBuilder $builder): void
+    public function prependExtension(ContainerConfigurator $configurator, ContainerBuilder $container): void
     {
-        $bundles = $builder->getParameter('kernel.bundles');
+        $bundles = $container->getParameter('kernel.bundles');
 
         if (!\is_array($bundles) || !isset($bundles['DoctrineBundle'])) {
             return;
         }
 
-        $builder->prependExtensionConfig(
+        $container->prependExtensionConfig(
             'doctrine',
             [
                 'dbal' => [
